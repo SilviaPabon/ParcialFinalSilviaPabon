@@ -1,0 +1,41 @@
+﻿<Window x:Class="FirstFantasy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FirstFantasy"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock x:Name="txtOutput" HorizontalAlignment="Left" Margin="42,277,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="132" Width="187" Foreground="Black" Background="#FFFFC6C6"/>
+        <Button x:Name="BtnCreate" Content="Crear Personaje" HorizontalAlignment="Left" Margin="124,87,0,0" VerticalAlignment="Top" Width="120" Click="BtnCreate_Click"/>
+        <ComboBox x:Name="CboxCharacter" HorizontalAlignment="Left" Margin="124,59,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="" IsSelected="True"/>
+            <ComboBoxItem Content="Cleric"/>
+            <ComboBoxItem Content="Fighter"/>
+            <ComboBoxItem Content="Rouge"/>
+            <ComboBoxItem Content="Wizard"/>
+        </ComboBox>
+        <Button x:Name="btnAgregarArma" Content="Agregar Arma" HorizontalAlignment="Left" Margin="246,170,0,0" VerticalAlignment="Top" Click="btnAgregarArma_Click" />
+        <TextBox x:Name="txtNombrep" HorizontalAlignment="Left" Margin="124,28,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="24"/>
+        <Label Content="Seleccionar tipo" HorizontalAlignment="Left" Margin="30,56,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nombre Personaje" HorizontalAlignment="Left" Margin="16,28,0,0" VerticalAlignment="Top"/>
+        <Label Content="Selecc Arma" HorizontalAlignment="Left" Margin="42,167,0,0" VerticalAlignment="Top"/>
+        <Label Content="Selecc Armadura" HorizontalAlignment="Left" Margin="18,212,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAgregarArmadura" Content="Agregar Armadura" HorizontalAlignment="Left" Margin="246,218,0,0" VerticalAlignment="Top"/>
+        <DataGrid Margin="246,261,197,9"/>
+        <ComboBox x:Name="cboxWeapon" HorizontalAlignment="Left" Margin="117,171,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="" IsSelected="True"/>
+            <ComboBoxItem Content="Axe"/>
+            <ComboBoxItem Content="Sword"/>
+            <ComboBoxItem Content="Hammer"/>
+        </ComboBox>
+        <Label Content="Seleccione personaje creado en el lado derecho y configure:" HorizontalAlignment="Left" Margin="30,132,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="117,217,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="lboxPersonajes" Margin="443,28,52,199"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="633,261,0,0" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="633,323,0,0" VerticalAlignment="Top"/>
+        <Label Content="Seleccione personaje" HorizontalAlignment="Left" Margin="532,0,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
