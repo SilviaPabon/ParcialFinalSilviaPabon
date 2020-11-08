@@ -7,11 +7,10 @@ namespace FirstFantasy.Classes.Equipment
 {
     public class Axe : Weapon
     {
-        public Axe()
-        {
-        }
-        public Axe(int damage) : base(damage)
-        {
-        }
+        private string nombreAxe = "Hacha";
+
+        public string NombreAxe { get => nombreAxe; set => nombreAxe = value; }
+
+        
     }
 }

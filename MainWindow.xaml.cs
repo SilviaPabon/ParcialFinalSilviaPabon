@@ -5,6 +5,7 @@ using FirstFantasy.Extra;
 using FirstFantasy.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -182,13 +183,15 @@ namespace FirstFantasy
 
         private void btnAgregarArma_Click(object sender, RoutedEventArgs e)
         {
-            Character personajeSeleccion;
 
-            personajeSeleccion = (Character)lboxPersonajes.SelectedItem;
+            Character seleccionado; 
 
-            if(personajeSeleccion == null)
+            seleccionado = (Character) lboxPersonajes.SelectedItem;
+            
+
+            if (seleccionado == null)
             {
-                MessageBox.Show("You MUST select a type");
+                MessageBox.Show("You MUST pick");
                 return;
             }
 
@@ -200,14 +203,21 @@ namespace FirstFantasy
             {
                 case "Axe":
                     myWeapon = new Axe();
+                    myWeapon.NombreArma = "Hacha";
+                    myWeapon.Damage = myWeapon.Attack();
+
                     break;
 
                 case "Sword":
                     myWeapon = new Sword();
+                    myWeapon.NombreArma = "Espada";
+                    myWeapon.Damage = myWeapon.Attack();
                     break;
 
                 case "Hammer":
                     myWeapon = new Hammer();
+                    myWeapon.NombreArma = "Martillo";
+                    myWeapon.Damage = myWeapon.Attack();
                     break;
 
                 default:
@@ -216,14 +226,45 @@ namespace FirstFantasy
                     break;
             }
 
-            personajeSeleccion = (Character)lboxPersonajes.SelectedItem;
-
-
+            seleccionado.AddArma(myWeapon);
+            dgArmas.ItemsSource = seleccionado.Armas;
+            dgArmas.Items.Refresh();
+            /*
+            dgArmas.Items.Clear();
+            foreach (Weapon w in seleccionado)
+            {
+                
+                dgArmas.Items.Add(w);
+            }
+            */
 
 
         }
 
 
+
+        private void lboxPersonajes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Character seleccionado;
+
+            seleccionado = (Character)lboxPersonajes.SelectedItem;
+
+            
+            if (seleccionado == null)
+            {
+                MessageBox.Show("You MUST pick");
+                return;
+            }
+            dgArmas.ItemsSource = seleccionado.Armas;
+            /*
+            dgArmas.Items.Clear();
+            foreach (Weapon w in seleccionado)
+            {
+                dgArmas.Items.Clear();
+                dgArmas.Items.Add(w);
+            }
+            */
+        }
     }
     }
 

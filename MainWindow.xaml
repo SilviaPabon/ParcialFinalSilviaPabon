@@ -23,7 +23,17 @@
         <Label Content="Selecc Arma" HorizontalAlignment="Left" Margin="42,167,0,0" VerticalAlignment="Top"/>
         <Label Content="Selecc Armadura" HorizontalAlignment="Left" Margin="18,212,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAgregarArmadura" Content="Agregar Armadura" HorizontalAlignment="Left" Margin="246,218,0,0" VerticalAlignment="Top"/>
-        <DataGrid Margin="246,261,197,9"/>
+        <DataGrid Name="dgArmas" AutoGenerateColumns="False" Margin="246,277,172,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding NombreArma}" />
+                <DataGridTextColumn Header="Daño" Binding="{Binding Damage}" />
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Details}" Margin="10" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
         <ComboBox x:Name="cboxWeapon" HorizontalAlignment="Left" Margin="117,171,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="" IsSelected="True"/>
             <ComboBoxItem Content="Axe"/>
@@ -32,7 +42,7 @@
         </ComboBox>
         <Label Content="Seleccione personaje creado en el lado derecho y configure:" HorizontalAlignment="Left" Margin="30,132,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="117,217,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="lboxPersonajes" Margin="443,28,52,199"/>
+        <ListBox x:Name="lboxPersonajes" Margin="443,28,52,199" SelectionChanged="lboxPersonajes_SelectionChanged" />
         <Button Content="Button" HorizontalAlignment="Left" Margin="633,261,0,0" VerticalAlignment="Top"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="633,323,0,0" VerticalAlignment="Top"/>
         <Label Content="Seleccione personaje" HorizontalAlignment="Left" Margin="532,0,0,0" VerticalAlignment="Top"/>

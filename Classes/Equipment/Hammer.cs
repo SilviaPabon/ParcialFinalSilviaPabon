@@ -11,8 +11,5 @@ namespace FirstFantasy.Classes.Equipment
         {
         }
 
-        public Hammer(int damage) : base(damage)
-        {
-        }
     }
 }

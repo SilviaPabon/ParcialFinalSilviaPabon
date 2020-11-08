@@ -11,10 +11,6 @@ namespace FirstFantasy.Classes.Equipment
         {
         }
 
-        public Sword(int damage) : base(damage)
-        {
-        }
-
         public string ShowInformation()
         {
 

@@ -8,23 +8,27 @@ namespace FirstFantasy.Classes.Equipment
                                                 //utilizar interfaces que ya existen
     public abstract class Weapon : IDescribable
     {
+        private string nombreArma;
+
         private int damage;
 
+        private string descripcion;
+
+        public string NombreArma { get => nombreArma; set => nombreArma = value; }
+
         public int Damage { get => damage; set => damage = value; }
-
-        public Weapon(int damage)
+        public string Descripcion
         {
-            this.damage = damage;
+            get
+            {
+                return String.Format("Esta {0} tiene un daño de {1} puntos de ataque.", this.NombreArma, this.Damage);
+            }
         }
 
-        protected Weapon()
+        public int Attack()
         {
-        }
-
-        public string Attack()
-        {
-            int ataque = new Random().Next(0, 8);
-            return "El ataque del" + ataque;
+            damage = new Random().Next(1, 8);
+            return damage;
         }
 
         public string ShowInformation()
@@ -32,9 +36,6 @@ namespace FirstFantasy.Classes.Equipment
             return "This Weapon with "+ damage +" damage";
         }
 
-        public int CompareTo(Weapon obj) // implementación método de la interfaz comparable
-        {
-            return damage.CompareTo(obj.Damage); //criterio de comparación
-        }
+        
     }
 }

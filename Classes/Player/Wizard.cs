@@ -10,10 +10,6 @@ namespace FirstFantasy.Classes.Player
 
         public int Mp { get => mp; set => mp = value; }
 
-        public override String Taunt() //override para permitir la sobreescritura
-        {
-            return "By the cool";
-        }
 
         public string CastSpell()
         {

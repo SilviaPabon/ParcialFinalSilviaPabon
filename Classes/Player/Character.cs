@@ -1,7 +1,10 @@
-﻿using FirstFantasy.Interfaces;
+﻿using FirstFantasy.Classes.Equipment;
+using FirstFantasy.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Text;
+using System.Windows.Controls;
 
 namespace FirstFantasy.Classes.Player
 {
@@ -15,20 +18,15 @@ namespace FirstFantasy.Classes.Player
 
         public enum Races { Cleric, Fighter, Rouge, Wizard }
 
-        //enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat}
+        private List<Weapon> armas = new List<Weapon>();
 
         public string Name { get => name; set => name = value; }
         public int Level { get => level; set => level = value; }
         public int Experience { get => experience; set => experience = value; }
         public Races Race { get => race; set => race = value; }
-
-        //private Enum race; //Como se tiene arriba es más estricto
-        //public Enum Race { get => race; set => race = value; }
+        public List<Weapon> Armas { get => armas; set => armas = value; }
 
 
-        public abstract String Taunt(); // sólo dentro de una clase abstract, sobreescribir un método, redefinir
-
-        //obliga que las clases también tenga esto, si no, no deja
         public virtual String ShowCharacter() // no abstractos pero se pueden sobreescribir
         { // aquí en minúscula pues está dentro de la clase
             return "Name: " + name + " level " + level + " XP: " + experience;
@@ -43,6 +41,19 @@ namespace FirstFantasy.Classes.Player
         {
             return this.Name + ", Raza: " + this.Race;
         }
+
+        public void AddArma(Weapon myWeapon)
+        {
+            Armas.Add(myWeapon);
+        }
+
+        public IEnumerator<Weapon> GetEnumerator()
+        {
+            return Armas.GetEnumerator();
+        }
+
+        
+
 
     }
 }
