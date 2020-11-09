@@ -15,17 +15,18 @@ namespace FirstFantasy.Classes.Player
         private int experience;
 
         private Races race;
-
         public enum Races { Cleric, Fighter, Rouge, Wizard }
 
-        private List<Weapon> armas = new List<Weapon>();
+        private List<ObjetoI> armas = new List<ObjetoI>();
+
+        private List<ObjetoI> inventario = new List<ObjetoI>();
 
         public string Name { get => name; set => name = value; }
         public int Level { get => level; set => level = value; }
         public int Experience { get => experience; set => experience = value; }
         public Races Race { get => race; set => race = value; }
-        public List<Weapon> Armas { get => armas; set => armas = value; }
-
+        public List<ObjetoI> Armas { get => armas; set => armas = value; }
+        public List<ObjetoI> Inventario { get => inventario; set => inventario = value; }
 
         public virtual String ShowCharacter() // no abstractos pero se pueden sobreescribir
         { // aquí en minúscula pues está dentro de la clase
@@ -47,12 +48,32 @@ namespace FirstFantasy.Classes.Player
             Armas.Add(myWeapon);
         }
 
-        public IEnumerator<Weapon> GetEnumerator()
+        public void AddObjetos(ObjetoI myinventary)
+        {
+            Inventario.Add(myinventary);
+        }
+
+        public int SumarAttack()
+        {
+            int sumatoria = 0;
+
+            foreach (Weapon w in armas)
+            {
+                sumatoria += w.Damage;
+            }
+
+            return sumatoria;
+        }
+
+        public IEnumerator<ObjetoI> GetEnumerator()
         {
             return Armas.GetEnumerator();
         }
 
-        
+        public IEnumerator<ObjetoI> GetEnumerator2()
+        {
+            return Inventario.GetEnumerator();
+        }
 
 
     }

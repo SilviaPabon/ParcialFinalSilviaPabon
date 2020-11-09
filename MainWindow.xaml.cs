@@ -203,20 +203,20 @@ namespace FirstFantasy
             {
                 case "Axe":
                     myWeapon = new Axe();
-                    myWeapon.NombreArma = "Hacha";
+                    myWeapon.NombreObjeto = "Hacha";
                     myWeapon.Damage = myWeapon.Attack();
 
                     break;
 
                 case "Sword":
                     myWeapon = new Sword();
-                    myWeapon.NombreArma = "Espada";
+                    myWeapon.NombreObjeto = "Espada";
                     myWeapon.Damage = myWeapon.Attack();
                     break;
 
                 case "Hammer":
                     myWeapon = new Hammer();
-                    myWeapon.NombreArma = "Martillo";
+                    myWeapon.NombreObjeto = "Martillo";
                     myWeapon.Damage = myWeapon.Attack();
                     break;
 
@@ -229,15 +229,6 @@ namespace FirstFantasy
             seleccionado.AddArma(myWeapon);
             dgArmas.ItemsSource = seleccionado.Armas;
             dgArmas.Items.Refresh();
-            /*
-            dgArmas.Items.Clear();
-            foreach (Weapon w in seleccionado)
-            {
-                
-                dgArmas.Items.Add(w);
-            }
-            */
-
 
         }
 
@@ -245,6 +236,7 @@ namespace FirstFantasy
 
         private void lboxPersonajes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             Character seleccionado;
 
             seleccionado = (Character)lboxPersonajes.SelectedItem;
@@ -255,15 +247,78 @@ namespace FirstFantasy
                 MessageBox.Show("You MUST pick");
                 return;
             }
+            
             dgArmas.ItemsSource = seleccionado.Armas;
-            /*
-            dgArmas.Items.Clear();
-            foreach (Weapon w in seleccionado)
+
+        }
+
+        private void btnAgregarArmadura_Click(object sender, RoutedEventArgs e)
+        {
+            Character seleccionado;
+
+            seleccionado = (Character)lboxPersonajes.SelectedItem;
+
+
+            if (seleccionado == null)
             {
-                dgArmas.Items.Clear();
-                dgArmas.Items.Add(w);
+                MessageBox.Show("You MUST pick");
+                return;
             }
-            */
+
+            ObjetoI myInventary;
+
+            string option3 = cboxArmor.Text;
+
+            switch (option3)
+            {
+                case "Armor Gold":
+                    myInventary = new Gold();
+                    myInventary.NombreObjeto = "Armadura de Oro";
+                    
+
+                    break;
+
+                case "Armor Silver":
+                    myInventary = new Silver();
+                    myInventary.NombreObjeto = "Armadura de Plata";
+                    
+                    break;
+
+                case "EntDraught":
+                    myInventary = new EntDraught();
+                    myInventary.NombreObjeto = "Bebidas de los Ents";
+
+                    break;
+
+                case "LucysCordial":
+                    myInventary = new LucysCordial();
+                    myInventary.NombreObjeto = "Poción de Lucy";
+
+                    break;
+
+                default:
+                    myInventary = null;
+                    MessageBox.Show("You MUST select a type");
+                    break;
+            }
+
+            seleccionado.AddObjetos(myInventary);
+            seleccionado.Inventario.ForEach(Weapon => seleccionado.Armas.Add(Weapon));
+            seleccionado.Inventario.Clear();
+            dgArmas.ItemsSource = seleccionado.Armas;
+            dgArmas.Items.Refresh();
+        }
+
+        private void btnAttack_Click(object sender, RoutedEventArgs e)
+        {
+            int suma = 0;
+
+            for(int i = 0; i < dgArmas.Items.Count; i++)
+            {
+                suma += (int.Parse((dgArmas.Columns[1].GetCellContent(dgArmas.Items[i])as TextBlock).Text));
+            }
+
+            MessageBox.Show("El ataque de " + lboxPersonajes.SelectedItem.ToString() + " fue de " + suma.ToString() + " puntos.");
         }
     }
     }

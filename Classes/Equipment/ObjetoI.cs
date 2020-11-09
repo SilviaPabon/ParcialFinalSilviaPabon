@@ -6,7 +6,7 @@ using System.Text;
 namespace FirstFantasy.Classes.Equipment
 {
                                                 //utilizar interfaces que ya existen
-    public abstract class Weapon : ObjetoI, IDescribable
+    public abstract class ObjetoI : IDescribable
     {
         private string nombreObjeto;
 
@@ -14,7 +14,7 @@ namespace FirstFantasy.Classes.Equipment
 
         private string descripcion;
 
-        public string NombreObjeto { get => nombreObjeto; set => nombreObjeto = value; }
+        
 
         public int Damage { get => damage; set => damage = value; }
         public string Descripcion
@@ -25,11 +25,15 @@ namespace FirstFantasy.Classes.Equipment
             }
         }
 
+        public string NombreObjeto { get => nombreObjeto; set => nombreObjeto = value; }
+
         public int Attack()
         {
             damage = new Random().Next(1, 8);
             return damage;
         }
+
+        
 
         public string ShowInformation()
         {

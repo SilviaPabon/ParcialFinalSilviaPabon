@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FirstFantasy.Classes.Equipment
 {
-    public class Potion : ObjetoI, IDescribable
+    public class LucysCordial : Potion, IDescribable
     {
         public string ShowInformation()
         {
