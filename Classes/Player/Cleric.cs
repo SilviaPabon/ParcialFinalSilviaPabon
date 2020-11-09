@@ -8,16 +8,5 @@ namespace FirstFantasy.Classes.Player
     public class Cleric : Character
     {
         
-        public Cleric()
-        {
-        }
-
-        public Cleric(string name)
-        {
-            this.Name = name;
-        }
-
-
-
     }
 }

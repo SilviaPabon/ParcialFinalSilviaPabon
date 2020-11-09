@@ -7,10 +7,6 @@ namespace FirstFantasy.Classes.Equipment
 {
     public class EntDraught : Potion
     {
-        public string ShowInformation()
-        {
 
-            return "This is a strange potion";
-        }
     }
 }

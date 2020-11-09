@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FirstFantasy.Classes.Equipment
 {
-                                                //utilizar interfaces que ya existen
+                                                
     public abstract class Weapon : ObjetoI
     {
 
@@ -24,8 +24,8 @@ namespace FirstFantasy.Classes.Equipment
 
         public int Attack()
         {
-            damage = new Random().Next(1, 8);
-            return damage;
+            Damage = new Random().Next(1, 8);
+            return Damage;
         }
 
         
