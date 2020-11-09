@@ -1,8 +1,6 @@
 ﻿using FirstFantasy.Classes;
 using FirstFantasy.Classes.Equipment;
 using FirstFantasy.Classes.Player;
-using FirstFantasy.Extra;
-using FirstFantasy.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -205,18 +203,21 @@ namespace FirstFantasy
                     myWeapon = new Axe();
                     myWeapon.NombreObjeto = "Hacha";
                     myWeapon.Damage = myWeapon.Attack();
-
+                    myWeapon.TipoObjeto = "Arma";
+                    string descripcion = myWeapon.Descripcion;
                     break;
 
                 case "Sword":
                     myWeapon = new Sword();
                     myWeapon.NombreObjeto = "Espada";
+                    myWeapon.TipoObjeto = "Arma";
                     myWeapon.Damage = myWeapon.Attack();
                     break;
 
                 case "Hammer":
                     myWeapon = new Hammer();
                     myWeapon.NombreObjeto = "Martillo";
+                    myWeapon.TipoObjeto = "Arma";
                     myWeapon.Damage = myWeapon.Attack();
                     break;
 
@@ -274,26 +275,26 @@ namespace FirstFantasy
                 case "Armor Gold":
                     myInventary = new Gold();
                     myInventary.NombreObjeto = "Armadura de Oro";
-                    
+                    myInventary.TipoObjeto = "Armadura";
 
                     break;
 
                 case "Armor Silver":
                     myInventary = new Silver();
                     myInventary.NombreObjeto = "Armadura de Plata";
-                    
+                    myInventary.TipoObjeto = "Armadura";
                     break;
 
                 case "EntDraught":
                     myInventary = new EntDraught();
                     myInventary.NombreObjeto = "Bebidas de los Ents";
-
+                    myInventary.TipoObjeto = "Poción";
                     break;
 
                 case "LucysCordial":
                     myInventary = new LucysCordial();
                     myInventary.NombreObjeto = "Poción de Lucy";
-
+                    myInventary.TipoObjeto = "Poción";
                     break;
 
                 default:

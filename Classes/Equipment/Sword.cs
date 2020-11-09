@@ -1,20 +1,12 @@
-﻿using FirstFantasy.Interfaces;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FirstFantasy.Classes.Equipment
 {
-    public class Sword : Weapon, IDescribable
+    public class Sword : Weapon
     {
-        public Sword()
-        {
-        }
 
-        public string ShowInformation()
-        {
-
-            return "This is a strange potion";
-        }
     }
 }
